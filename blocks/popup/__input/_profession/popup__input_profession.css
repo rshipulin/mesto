@@ -1,0 +1,14 @@
+.popup__input_profession {
+  max-width: 358px;
+  width: 83%;
+  margin: 0 36px 48px 36px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  border: 0;
+  padding-bottom: 13px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}

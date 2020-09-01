@@ -1,0 +1,11 @@
+@import url(../element/__container/element__container.css);
+@import url(../element/__image/element__image.css);
+@import url(../element/__like/element__like.css);
+@import url(../element/__name/element__name.css);
+
+.element {
+  width: 282px;
+  height: 361px;
+  background: #FFF;
+  border-radius: 10px;
+}

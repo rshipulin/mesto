@@ -1,0 +1,17 @@
+@import url(./__container/popup__container.css);
+@import url(./__form/popup__form.css);
+@import url(./__input/popup__input.css);
+@import url(./__close/popup__close.css);
+@import url(./__title/popup__title.css);
+@import url(./__submit/popup__submit.css);
+
+.popup {
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
