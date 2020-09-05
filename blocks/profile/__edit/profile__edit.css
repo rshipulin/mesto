@@ -1,32 +1,29 @@
 .profile__edit {
-  margin: 0;
-  align-self: stretch;
+  margin: 0 0 0 17px;
+  padding: 0;
+  background-color: inherit;
   width: 24px;
   height: 24px;
-  background-color: #000000;
-  border: 1px solid #FFF;
+  border: 1px solid #FFFFFF;
+  box-sizing: border-box;
   background-image: url(../../../images/edit.svg);
-  background-size: auto;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-position: center;
-  outline: none;
+  background-size: 10px 10px;
+  opacity: 1;
+  transition: opacity .5s;
+  cursor: pointer
 }
 
 .profile__edit:hover {
-  cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-@media screen and (min-width: 420px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .profile__edit {
-    align-self: center;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 419px) {
-  .profile__edit {
+    margin-left: 8px;
     width: 18px;
     height: 18px;
-    align-self: center;
+    background-size: 7px 7px;
   }
 }

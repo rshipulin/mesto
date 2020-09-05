@@ -1,0 +1,9 @@
+.profile__box {
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__box {
+    margin: 14px 0 36px 0;
+  }
+}
