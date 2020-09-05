@@ -2,32 +2,28 @@ let accountPopUp = document.querySelector('.popup');
 let accountEdit = document.querySelector('.profile__edit');
 let accountClose = accountPopUp.querySelector('.popup__close');
 let accountSave = accountPopUp.querySelector('.popup__container');
-let accountInputName = accountPopUp.querySelector('.popup__input_name');
-let accountInputProf = accountPopUp.querySelector('.popup__input_profession');
+let accountInputName = accountPopUp.querySelector('.popup__form-item_input_name');
+let accountInputProf = accountPopUp.querySelector('.popup__form-item_input_profession');
 let accountName = document.querySelector('.profile__name');
 let accountProfession = document.querySelector('.profile__profession');
-
-function popUpToggle(obj) {
-  obj.classList.toggle('popup_opened')
-}
 
 function showPopup() {
   accountInputName.value = accountName.textContent;
   accountInputProf.value = accountProfession.textContent;
-  popUpToggle(accountPopUp);
+  accountPopUp.classList.toggle('popup__opened');
 }
 
 function closePopup() {
-  popUpToggle(accountPopUp);
+  accountPopUp.classList.toggle('popup__opened');
 }
 
 function accountFormSubmit (evt) {
   evt.preventDefault();
   accountName.textContent = accountInputName.value;
   accountProfession.textContent = accountInputProf.value;
-  popUpToggle(accountPopUp);
+  accountPopUp.classList.toggle('popup__opened');
 }
 
-accountEdit.addEventListener('click', showPopup); // открытие попапа
-accountClose.addEventListener('click', closePopup); // закрытие попапа
-accountSave.addEventListener('submit', accountFormSubmit); // отправка формы
+accountEdit.addEventListener('click', showPopup);
+accountClose.addEventListener('click', closePopup);
+accountSave.addEventListener('submit', accountFormSubmit);

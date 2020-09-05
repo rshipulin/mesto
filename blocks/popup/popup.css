@@ -1,9 +1,10 @@
 @import url(./__container/popup__container.css);
 @import url(./__form/popup__form.css);
-@import url(./__input/popup__input.css);
 @import url(./__close/popup__close.css);
 @import url(./__title/popup__title.css);
 @import url(./__submit/popup__submit.css);
+@import url(./__form-item/popup__form-item.css);
+@import url(./__opened/popup__opened.css);
 
 .popup {
   display: flex;
