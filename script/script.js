@@ -10,18 +10,18 @@ let accountProfession = document.querySelector('.profile__profession');
 function showPopup() {
   accountInputName.value = accountName.textContent;
   accountInputProf.value = accountProfession.textContent;
-  accountPopUp.classList.toggle('popup__opened');
+  accountPopUp.classList.toggle('popup_opened');
 }
 
 function closePopup() {
-  accountPopUp.classList.toggle('popup__opened');
+  accountPopUp.classList.toggle('popup_opened');
 }
 
 function accountFormSubmit (evt) {
   evt.preventDefault();
   accountName.textContent = accountInputName.value;
   accountProfession.textContent = accountInputProf.value;
-  accountPopUp.classList.toggle('popup__opened');
+  accountPopUp.classList.toggle('popup_opened');
 }
 
 accountEdit.addEventListener('click', showPopup);

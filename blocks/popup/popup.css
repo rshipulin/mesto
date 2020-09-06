@@ -4,7 +4,6 @@
 @import url(./__title/popup__title.css);
 @import url(./__submit/popup__submit.css);
 @import url(./__form-item/popup__form-item.css);
-@import url(./__opened/popup__opened.css);
 
 .popup {
   display: flex;
