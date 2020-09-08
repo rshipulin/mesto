@@ -1,0 +1,14 @@
+@import url(./__items/cards__items.css);
+
+.cards {
+  width: calc(100% - (199px * 2));
+  min-width: 729px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .cards {
+    min-width: 0;
+    width: calc(100% - (19px * 2));
+  }
+}
