@@ -1,78 +1,98 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
+
 <body class="page">
   <header class="header">
     <div class="header__logo"></div>
   </header>
+
   <main>
     <section class="profile">
-      <img src="images/avatar.jpg" alt="Аватар" class="profile__avatar">
+      <img class="profile__avatar" alt="Аватар" src="./images/avatar.jpg">
       <div class="profile__box">
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit" type="button" aria-label="Изменить"></button>
+          <h1 class="profile__name" id="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit" type="button" aria-label="Редактировать"></button>
         </div>
-        <p class="profile__profession">Исследователь океана</p>
+        <p class="profile__profession" id="profile__profession">Исследователь океана</p>
       </div>
       <button class="profile__add" type="button" aria-label="Добавить"></button>
     </section>
-
     <section class="cards">
       <ul class="cards__items">
-        <template id="card">
-          <li class="card">
-            <img class="card__image" src="">
-            <button class="card__delete" type="button" aria-label="Удалить"></button>
-            <div class="card__container">
-              <h2 class="card__name"></h2>
-              <button class="card__like" type="button" aria-label="Нравится"></button>
-            </div>
-          </li>
-        </template>
       </ul>
     </section>
+
   </main>
+
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
 
   <div class="popup" data-type="place">
-    <form class="popup__container" name="popupForm">
+    <form class="popup__container" name="place" novalidate>
       <h3 class="popup__title">Новое место</h3>
-        <fieldset class="popup__form">
-          <input class="popup__form-item popup__form-item_input_name" type="text" placeholder="Название" name="name" required>
-          <input class="popup__form-item popup__form-item_input_profession" type="text" placeholder="Ссылка на картинку" name="description" required>
-        </fieldset>
+      <fieldset class="popup__form">
+        <div class="popup__form-item-group">
+          <input id="title" class="popup__form-item popup__form-item_input_name" type="text" placeholder="Название"
+            name="title" minlength="1" maxlength="30" required>
+          <span id="title-error" class="popup__form-error"></span>
+        </div>
+        <div class="popup__form-item-group">
+          <input id="link" class="popup__form-item popup__form-item_input_description" type="url"
+            placeholder="Ссылка на картинку" name="link" required>
+          <span id="link-error" class="popup__form-error"></span>
+        </div>
         <button class="popup__submit" type="submit">Сохранить</button>
-        <button class="popup__close" type="reset" aria-label="Закрыть"></button>
+      </fieldset>
+      <button class="popup__close" type="reset" aria-label="Закрыть"></button>
     </form>
   </div>
   <div class="popup" data-type="account">
-    <form class="popup__container" name="popupForm">
+    <form class="popup__container" name="account" novalidate>
       <h3 class="popup__title">Редактировать профиль</h3>
-        <fieldset class="popup__form">
-          <input class="popup__form-item popup__form-item_input_name" type="text" placeholder="Имя" name="name" required>
-          <input class="popup__form-item popup__form-item_input_profession" type="text" placeholder="Описание профиля" name="description" required>
-        </fieldset>
+      <fieldset class="popup__form">
+        <div class="popup__form-item-group">
+          <input id="username" class="popup__form-item popup__form-item_input_name" type="text" placeholder="Имя"
+            name="username" minlength="2" maxlength="40" required>
+          <span id="username-error" class="popup__form-error"></span>
+        </div>
+        <div class="popup__form-item-group">
+          <input id="description" class="popup__form-item popup__form-item_input_description" type="text"
+            placeholder="Описание профиля" name="description" minlength="2" maxlength="200" required>
+          <span id="description-error" class="popup__form-error"></span>
+        </div>
         <button class="popup__submit" type="submit">Сохранить</button>
-        <button class="popup__close" type="reset" aria-label="Закрыть"></button>
+      </fieldset>
+      <button class="popup__close" type="reset" aria-label="Закрыть"></button>
     </form>
   </div>
-  <div class="popup popup-image" data-type="image">
-    <figure class="popup__container">
+  <div class="popup popup_dark" data-type="lightbox">
+    <figure class="popup__lightbox">
       <button class="popup__close" type="reset" aria-label="Закрыть"></button>
       <img class="popup__image" src="" alt="">
       <figcaption class="popup__caption"></figcaption>
     </figure>
   </div>
 
-    <script src="script/script.js"></script>
+  <template id="card">
+    <li class="card">
+      <img class="card__image" src="">
+      <button class="card__delete" type="button" aria-label="Удалить"></button>
+      <div class="card__container">
+        <h2 class="card__name"></h2>
+        <button class="card__like" type="button" aria-label="Нравится"></button>
+      </div>
+    </li>
+  </template>
+
+  <script src="/scripts/script.js"></script>
+  <script src="/scripts/validate.js"></script>
 </body>
 </html>

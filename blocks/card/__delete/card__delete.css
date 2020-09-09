@@ -11,8 +11,8 @@
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-  opacity: 1;
   transition: opacity .5s;
+  opacity: 1;
   cursor: pointer
 }
 
@@ -23,3 +23,4 @@
 .card__delete:focus {
   outline: 0;
 }
+

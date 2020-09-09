@@ -7,8 +7,6 @@
 
 .card {
   position: relative;
-  display: flex;
-  flex-direction: column;
   height: 361px;
   width: 282px;
   background-color: #fff;
