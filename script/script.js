@@ -47,7 +47,7 @@ const imageCloseButton = imagePopUp.querySelector('.popup__close');
 const imageSaveButton = imagePopUp.querySelector('.popup__container');
 
 
-function popUpToggle(obj) {
+function togglePopUp(obj) {
   obj.classList.toggle('popup_opened')
 }
 
@@ -55,56 +55,56 @@ function showAccountPopUp() {
   accountInputName.value = accountName.textContent;
   accountInputDesc.value = accountDescription.textContent;
 
-  popUpToggle(accountPopUp);
+  togglePopUp(accountPopUp);
 }
 
 function closeAccountPopUp() {
-  popUpToggle(accountPopUp);
+  togglePopUp(accountPopUp);
 }
 
-function accountFormSubmitHandler (evt) {
+function handleAccountFormSubmit (evt) {
   evt.preventDefault();
   accountName.textContent = accountInputName.value;
   accountDescription.textContent = accountInputDesc.value;
-  popUpToggle(accountPopUp);
+  togglePopUp(accountPopUp);
 }
 
 accountEditButton.addEventListener('click', showAccountPopUp);
 accountCloseButton.addEventListener('click', closeAccountPopUp);
-accountSaveButton.addEventListener('submit', accountFormSubmitHandler);
+accountSaveButton.addEventListener('submit', handleAccountFormSubmit);
 
 
 
 function showPlacePopUp() {
-  popUpToggle(placePopUp);
+  togglePopUp(placePopUp);
 }
 
 function closePlacePopUp() {
-  popUpToggle(placePopUp);
+  togglePopUp(placePopUp);
 }
 
-function placeFormSubmitHandler (evt) {
+function handlePlaceFormSubmit (evt) {
   evt.preventDefault();
   const newCard = {};
   newCard.name = placeInputTitle.value;
   newCard.link = placeInputLink.value;
   console.log(createCard(newCard))
   renderCard(createCard(newCard));
-  popUpToggle(placePopUp);
+  togglePopUp(placePopUp);
 
 }
 
 placeAddButton.addEventListener('click', showPlacePopUp);
 placeCloseButton.addEventListener('click', closePlacePopUp);
-placeSaveButton.addEventListener('submit', placeFormSubmitHandler);
+placeSaveButton.addEventListener('submit', handlePlaceFormSubmit);
 
 // Попап с изображением
 function showImagePopUp() {
-  popUpToggle(imagePopUp);
+  togglePopUp(imagePopUp);
 }
 
 function closeImagePopUp() {
-  popUpToggle(imagePopUp);
+  togglePopUp(imagePopUp);
 }
 
 imageCloseButton.addEventListener('click', closeImagePopUp);
