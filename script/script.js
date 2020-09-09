@@ -42,6 +42,10 @@ const placeSaveButton = placePopUp.querySelector('.popup__container');
 const placeInputTitle = placePopUp.querySelector('.popup__form-item_input_name');
 const placeInputLink = placePopUp.querySelector('.popup__form-item_input_profession');
 
+const imagePopUp = document.querySelector('.popup[data-type="image"]');
+const imageCloseButton = imagePopUp.querySelector('.popup__close');
+const imageSaveButton = imagePopUp.querySelector('.popup__container');
+
 
 function popUpToggle(obj) {
   obj.classList.toggle('popup_opened')
@@ -94,30 +98,30 @@ placeAddButton.addEventListener('click', showPlacePopUp);
 placeCloseButton.addEventListener('click', closePlacePopUp);
 placeSaveButton.addEventListener('submit', placeFormSubmitHandler);
 
-// лайтбокс
-
-const lightbox = document.querySelector('.lightbox');
-const lightboxCloseBtn = document.querySelector('.lightbox__close');
-
-function addLightbox(card) {
-  const cardImage = card.querySelector('.card__image');
-  cardImage.addEventListener('click',function (event) {
-    const caption = event.target.parentElement.querySelector('.card__name').textContent
-    const imgSrc = event.target.src
-    let lightboxCaption = lightbox.querySelector('.lightbox__caption');
-    const lightboxImage = lightbox.querySelector('.lightbox__image');
-    lightboxCaption.textContent = caption;
-    lightboxImage.src = imgSrc;
-    lightboxImage.alt = caption;
-    toggleFullScreen()
-  })}
-
-
-function toggleFullScreen() {
-  lightbox.classList.toggle('lightbox_opened');
+// Попап с изображением
+function showImagePopUp() {
+  popUpToggle(imagePopUp);
 }
 
-lightboxCloseBtn.addEventListener('click',toggleFullScreen);
+function closeImagePopUp() {
+  popUpToggle(imagePopUp);
+}
+
+imageCloseButton.addEventListener('click', closeImagePopUp);
+
+function addPopupImage(card) {
+  const cardImage = card.querySelector('.card__image');
+  cardImage.addEventListener('click',function (event) {
+    const caption = event.target.parentElement.querySelector('.card__name').textContent;
+    const imgSrc = event.target.src
+    let popupCaption = imagePopUp.querySelector('.popup__caption');
+    const popupImage = imagePopUp.querySelector('.popup__image');
+    popupCaption.textContent = caption;
+    popupImage.src = imgSrc;
+    popupImage.alt = caption;
+    showImagePopUp();
+  });
+}
 
 // карточки
 
@@ -135,7 +139,7 @@ function createCard(array) {
   card.querySelector('.card__delete').addEventListener('click', function (event) {
     event.target.parentElement.remove();
   })
-  addLightbox(card);
+  addPopupImage(card);
   return card;
 }
 
