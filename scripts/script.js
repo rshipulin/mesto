@@ -52,15 +52,15 @@ accountInputName.value = accountName
 accountInputDesc.value = accountProfession
 
 
-function crossOverlayExit(evt) {
+function closeOverlay(evt) {
   if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')){
     const currentPopUp = document.querySelector('.popup_opened');
     closePopUp(currentPopUp);
   }
 };
 
-function ESCExit(evt) {
-  if ( (evt.key === 'Escape') ) {
+function handleEsc(evt) {
+  if (evt.key === 'Escape') {
     const currentPopUp = document.querySelector('.popup_opened');
     closePopUp(currentPopUp);
   }
@@ -68,22 +68,16 @@ function ESCExit(evt) {
 
 
 const showPopUp = (popup) => {
-  if (popup === accountPopUp) {
-    accountInputName.value = accountName.textContent;
-    accountInputDesc.value = accountProfession.textContent;
-  }
-
-
   popup.classList.add('popup_opened');
-  popup.addEventListener('click', crossOverlayExit);
-  document.addEventListener('keyup', ESCExit);
+  popup.addEventListener('click', closeOverlay);
+  document.addEventListener('keyup', handleEsc);
 }
 
 
 const closePopUp = (popup) => {
   popup.classList.remove('popup_opened');
-  popup.removeEventListener('click', crossOverlayExit);
-  document.removeEventListener('keyup', ESCExit);
+  popup.removeEventListener('click', closeOverlay);
+  document.removeEventListener('keyup', handleEsc);
 }
 
 
@@ -95,8 +89,11 @@ function handleAccountFormSubmit (evt) {
 }
 
 accountEditButton.addEventListener('click', () => {
+  accountInputName.value = accountName.textContent;
+  accountInputDesc.value = accountProfession.textContent;
   showPopUp(accountPopUp);
 });
+
 accountSaveButton.addEventListener('submit', handleAccountFormSubmit);
 
 
